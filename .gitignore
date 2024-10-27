@@ -1,0 +1,38 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+binaries/
+bin/
+obj/
+out/
+build/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+*.snupkg
+*.nuspec
+
+# Rider
+.idea/
+*.sln.iml
+
+# Logs
+*.log
+
+# OS generated files
+Thumbs.db
+.DS_Store

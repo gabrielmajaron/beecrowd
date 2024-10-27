@@ -1,0 +1,8 @@
+RRW
+2
+RRW
+1
+WRR
+2
+WRR
+1

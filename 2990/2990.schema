@@ -1,0 +1,60 @@
+create table empregados
+(
+  cpf varchar(15),
+  enome varchar(60),
+  salario float,
+  cpf_supervisor varchar(15),
+  dnumero int,
+  constraint pk_emp primary key(cpf)
+);
+
+create table departamentos
+(
+  dnumero int,
+  dnome varchar(60),
+  cpf_gerente varchar(15),
+  constraint pk_dep primary key(dnumero),
+  constraint fk_dep_emp foreign key(cpf_gerente) references empregados(cpf)
+);
+
+create table trabalha
+(
+  cpf_emp varchar(15),
+  pnumero int,
+  constraint fk_t foreign key (cpf_emp) references empregados(cpf)
+);
+
+create table projetos
+(
+  pnumero int,
+  pnome varchar(45),
+  dnumero int,
+  constraint pk_p primary key(pnumero),
+  constraint fk_proj_dep foreign key
+  (dnumero) references departamentos
+);
+
+insert into empregados values('49382234322','João Silva',2350,'2434332222',1010);
+insert into empregados values('586733922290','Mario Silveira',3500,'2434332222',1010);
+insert into empregados values('2434332222','Aline Barros',2350,null,1010);
+insert into empregados values('1733332162','Tulio Vidal',8350,null,1020);
+insert into empregados values('4244435272','Juliana Rodrigues',3310,null,1020);
+insert into empregados values('1014332672','Natalia Marques',2900,null,1010);
+
+insert into departamentos values(1010,'Pesquisa','49382234322');
+insert into departamentos values(1020,'Ensino','2434332222');
+
+insert into trabalha values('49382234322',2010);
+insert into trabalha values('586733922290',2020);
+insert into trabalha values('49382234322',2020);
+
+insert into projetos values(2010,'Alpha',1010);
+insert into projetos values(2020,'Beta',1020);
+
+
+
+
+
+
+
+

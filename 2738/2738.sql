@@ -1,0 +1,2 @@
+select candidate.name, to_char ((((score.math*2)+(score.specific*3)+(score.project_plan*5))/10), 'FM999999990.00')  as avg   from score inner join candidate on candidate.id = score.candidate_id
+order by avg desc
