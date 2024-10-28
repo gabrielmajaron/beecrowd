@@ -1,0 +1,99 @@
+package uri;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+
+public class Uri 
+{
+    static class Jogos
+    {
+        int golsInter, golsGremio;
+
+        public int getGolsInter() {
+            return golsInter;
+        }
+
+        public void setGolsInter(int golsInter) {
+            this.golsInter = golsInter;
+        }
+
+        public int getGolsGremio() {
+            return golsGremio;
+        }
+
+        public void setGolsGremio(int golsGremio) {
+            this.golsGremio = golsGremio;
+        }
+        
+        
+    }
+    
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+            
+        List<Jogos>lista = new ArrayList<Jogos>();
+        
+        int golsInter = s.nextInt();
+        int golsGremio = s.nextInt();
+        Jogos J = new Jogos();
+        J.setGolsInter(golsInter);
+        J.setGolsGremio(golsGremio);
+        lista.add(J);
+        
+        System.out.println("Novo grenal (1-sim 2-nao)");
+        int resp = s.nextInt();
+        while(resp==1)
+        {
+            
+            golsInter = s.nextInt();
+            golsGremio = s.nextInt();
+            J = new Jogos();
+            J.setGolsInter(golsInter);
+            J.setGolsGremio(golsGremio);
+            lista.add(J);
+
+            System.out.println("Novo grenal (1-sim 2-nao)");
+            resp = s.nextInt();
+        }
+        
+        int vitoriasInter=0, vitoriasGremio=0, empates=0;
+        
+        for (Jogos jogos : lista) 
+        {
+            if(jogos.getGolsInter()>jogos.getGolsGremio())
+                vitoriasInter++;
+            else
+            if(jogos.getGolsInter()<jogos.getGolsGremio())
+                vitoriasGremio++;
+            else
+            empates++;
+        }
+        
+        String venceuMais="";
+        
+        if(vitoriasInter>vitoriasGremio)
+            venceuMais="Inter";
+        else
+        if(vitoriasInter<vitoriasGremio)
+            venceuMais="Gremio";
+        
+        int grenais = lista.size();
+        
+        System.out.println(grenais+" grenais");
+        System.out.println("Inter:"+vitoriasInter);
+        System.out.println("Gremio:"+vitoriasGremio);
+        System.out.println("Empates:"+empates);
+        if(venceuMais!="")
+            System.out.println(venceuMais+" venceu mais");
+        else
+            System.out.println("Nao houve vencedor");
+                
+                
+    }
+            
+}

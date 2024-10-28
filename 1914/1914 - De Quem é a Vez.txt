@@ -1,0 +1,42 @@
+package uri;
+
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Uri 
+{
+    public static void main(String[] args) throws IOException 
+    {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        String linha = br.readLine();
+        
+        int qtde = Integer.parseInt(linha);
+        
+        for(int i=0; i<qtde; i++)
+        {
+            String caso = br.readLine();
+            String jogador1 = caso.split(" ")[0];
+            String jogador2 = caso.split(" ")[2];
+            String escolhido1 = caso.split(" ")[1];
+            //String escolhido2 = caso.split(" ")[3];
+            
+            String partida = br.readLine();
+            int jogada1 = Integer.parseInt(partida.split(" ")[0]);
+            int jogada2 = Integer.parseInt(partida.split(" ")[1]);
+            int tot = jogada1+jogada2;
+            boolean resultPar = true;
+            if(tot%2 != 0)
+                resultPar = false;
+            
+            if(escolhido1.equalsIgnoreCase("PAR") && resultPar == true)
+                System.out.println(jogador1);
+            else
+                if(escolhido1.equalsIgnoreCase("IMPAR") && resultPar == false)
+                System.out.println(jogador1);
+            else
+                    System.out.println(jogador2);
+        }
+    }
+}

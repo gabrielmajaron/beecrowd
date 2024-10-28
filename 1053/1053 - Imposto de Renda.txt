@@ -1,0 +1,51 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        double salario = s.nextDouble();
+        double imposto = 0;
+        
+        salario-=2000;
+        
+        if(salario<=0)
+        {
+            System.out.println("Isento");
+            return;
+        }
+        
+        if(salario-1000>=0)
+        {
+            salario-=1000;
+            imposto += 80;
+        }
+        else
+        {
+            imposto += salario*0.08;
+            salario = 0;
+        }
+        
+        if(salario-1500>=0)
+        {
+            salario-=1500;
+            imposto += 270;
+        }
+        else
+        {
+            imposto += salario*0.18;
+            salario = 0;
+        }
+        
+        if(salario>0)
+            imposto += (salario*0.28);
+        
+        
+        System.out.printf("R$ %.2f\n",imposto);
+    }
+            
+}

@@ -1,0 +1,51 @@
+
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        int[] vetDDD = new int[8];
+        String[] vetDestination = new String[8];
+        
+        vetDDD[0] = 61;
+        vetDDD[1] = 71;
+        vetDDD[2] = 11;
+        vetDDD[3] = 21;
+        vetDDD[4] = 32;
+        vetDDD[5] = 19;
+        vetDDD[6] = 27;
+        vetDDD[7] = 31;
+
+        vetDestination[0] = "Brasilia";
+        vetDestination[1] = "Salvador";
+        vetDestination[2] = "Sao Paulo";
+        vetDestination[3] = "Rio de Janeiro";
+        vetDestination[4] = "Juiz de Fora";
+        vetDestination[5] = "Campinas";
+        vetDestination[6] = "Vitoria";
+        vetDestination[7] = "Belo Horizonte";
+        
+            
+        int ddd = s.nextInt();
+        int pos = -1;
+        for(int i=0; i<8; i++)
+        {
+            if(vetDDD[i] == ddd)
+            {
+                pos = i;
+                i = 8;
+            }
+        }
+        if(pos == -1)
+            System.out.println("DDD nao cadastrado");
+        else
+            System.out.println(vetDestination[pos]);
+    }
+            
+}

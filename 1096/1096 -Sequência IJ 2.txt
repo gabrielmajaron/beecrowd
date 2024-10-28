@@ -1,0 +1,41 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+    
+    
+        int cont = 0;
+        for(int i=1, j=7; i<10; j--)
+        {
+            System.out.println("I="+i+" J="+j);
+            
+            
+            if(cont == 2)
+            {
+                i+=2;
+                cont = -1;
+                j=8;
+            }
+            
+            cont++;
+        }
+        
+        
+            /*I=1 J=7
+            I=1 J=6
+            I=1 J=5
+            I=3 J=7
+            I=3 J=6
+            I=3 J=5
+            ...
+            I=9 J=7
+            I=9 J=6
+            I=9 J=5*/
+    }
+            
+}

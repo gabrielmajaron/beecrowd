@@ -1,0 +1,35 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int tam = s.nextInt();
+        int menor, pos = 0;
+        
+        int[] vet = new int[tam];
+        
+        for(int i=0; i<tam; i++)
+        {
+            vet[i] = s.nextInt();
+        }
+        menor = vet[0];
+        for(int i=1; i<tam; i++)
+        {
+            if(vet[i] < menor)
+            {
+                menor = vet[i];
+                pos = i;
+            }
+        }
+        
+        System.out.println("Menor valor: "+menor);
+        System.out.println("Posicao: "+pos);
+    }
+}

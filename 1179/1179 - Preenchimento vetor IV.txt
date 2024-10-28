@@ -1,0 +1,59 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        int[] vetpar = new int[5];
+        int[] vetimpar = new int[5];
+        
+        int tlpar = 0, tlimpar = 0;
+        
+        for(int i=0; i<15; i++)
+        {
+            int n = s.nextInt();
+            
+            if(n%2 == 0)
+            {
+                vetpar[tlpar] = n;
+                tlpar++;
+            }
+            else
+            {
+                vetimpar[tlimpar] = n;
+                tlimpar++;
+            }
+            
+            if(tlpar == 5)
+            {
+                for(int j=0; j<5; j++)
+                    System.out.println("par["+j+"] = "+vetpar[j]);
+                
+                vetpar = new int[5];
+                tlpar = 0;
+            }
+            
+            if(tlimpar == 5)
+            {
+                for(int j = 0; j<5; j++)
+                    System.out.println("impar["+j+"] = "+vetimpar[j]);
+                
+                vetimpar = new int[5];
+                tlimpar = 0;
+            }
+        }
+        
+        for(int i=0; i<tlimpar; i++)
+            System.out.println("impar["+i+"] = "+vetimpar[i]);
+        
+        for(int i=0; i<tlpar; i++)
+                System.out.println("par["+i+"] = "+vetpar[i]);
+            
+            
+    }
+}

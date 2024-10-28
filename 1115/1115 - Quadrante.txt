@@ -1,0 +1,37 @@
+package uri;
+
+import java.util.Scanner;
+
+
+
+public class Uri 
+{
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int v1 = s.nextInt();
+        int v2 = s.nextInt();
+        
+        while(v1 != 0 && v2 != 0)
+        {
+            if(v1>0 && v2>0)
+                System.out.println("primeiro");
+            else
+            if(v2<0 && v1<0)
+                System.out.println("terceiro");
+            else
+            if(v1>0 && v2<0)
+                System.out.println("quarto");
+            else
+                System.out.println("segundo");
+            
+            v1 = s.nextInt();
+            v2 = s.nextInt();
+        }
+                
+                
+    }
+            
+}

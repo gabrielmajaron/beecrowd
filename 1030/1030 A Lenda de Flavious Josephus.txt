@@ -1,0 +1,125 @@
+package uri;
+
+import java.util.Scanner;
+
+class Lista 
+{
+    Lista prox;
+    boolean vivo;
+    int pos;
+
+    public int getPos() {
+        return pos;
+    }
+
+    public void setPos(int pos) {
+        this.pos = pos;
+    }
+    
+    public Lista()
+    {
+        vivo = true;
+        prox = null;
+    }
+
+    public Lista getProx() {
+        return prox;
+    }
+
+    public void setProx(Lista prox) {
+        this.prox = prox;
+    }
+
+    public boolean ehVivo() {
+        return vivo;
+    }
+
+    public void setVivo(boolean vivo) {
+        this.vivo = vivo;
+    }
+    
+    
+}
+
+
+public class Uri 
+{
+    
+    public static boolean ultimoVivo(Lista L, int n)
+    {
+        int cont = 0;
+        Lista aux = L;
+        for(int i=0; i<n && cont <= 1; i++)
+        {
+            if(aux.ehVivo())
+                cont++;
+            aux = aux.getProx();
+        }
+        
+        if(cont==1)
+            return true;
+        
+        return false;
+    }
+    public static Lista proximoVivo(Lista aux)
+    {
+        Lista ret = aux;
+        
+        while(!ret.getProx().ehVivo())
+            ret = ret.getProx();
+        
+        return ret;            
+    }
+    public static void mata(Lista L, int k, int n)
+    {
+        Lista aux = L;
+        while(!ultimoVivo(L, n))
+        {
+            for(int i=0; i<k; i++)
+            {
+               aux = proximoVivo(aux);
+               aux = aux.getProx();
+            }
+                
+            
+            aux.setVivo(false);
+        }
+    }
+    
+    public static void main(String[] args)
+    {    
+        Scanner s = new Scanner(System.in);
+        
+        int o = s.nextInt();
+        
+        for(int i=0; i<o; i++)
+        {
+            int n = s.nextInt();
+            int k = s.nextInt();
+            
+            Lista L = new Lista();
+            L.setPos(0);
+            Lista aux = L;
+            for(int j=1; j<n; j++)
+            {
+                Lista novo = new Lista();
+                novo.setPos(j);
+                aux.setProx(novo);
+                aux = aux.getProx();
+            }
+            aux.setProx(L);
+            L = aux;
+            mata(L,k,n);
+            
+            
+            
+            aux = L;
+            for(int j=0; j<n && aux!=null; j++)
+            {
+                if(aux.ehVivo())
+                    System.out.println("Case "+(i+1)+": "+(aux.getPos()+1));
+                aux = aux.getProx();
+            }
+        }
+    }
+}

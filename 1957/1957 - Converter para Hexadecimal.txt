@@ -1,0 +1,64 @@
+package uri;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class Uri 
+{
+    public static String retornaLetra(int num)
+    {
+        if(num == 10)
+            return "A";
+        
+        if(num == 11)
+            return "B";
+        
+        if(num == 12)
+            return "C";
+        
+        if(num == 13)
+            return "D";
+        
+        if(num == 14)
+            return "E";
+        
+        if(num == 15)
+            return "F";
+        
+        return num+"";
+    }
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int n = s.nextInt();
+        List lista = new ArrayList();
+        
+        int resto =n%16;
+        
+        lista.add(retornaLetra(resto));
+        
+        int result = n/16;
+        
+        while(result>16)
+        {
+            n = result;
+            resto = n%16;
+            lista.add(retornaLetra(resto));
+            result = n/16;
+        }
+        if(result>0)
+        {
+            lista.add(retornaLetra(result));
+        }
+        
+        for(int i=lista.size()-1; i>=0; i--)
+        {
+            Object str = lista.get(i);
+            System.out.print(str);
+        }
+        System.out.println("");
+    }
+}

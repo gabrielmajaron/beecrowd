@@ -1,0 +1,51 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        int total = 0, coelhos = 0, ratos = 0, sapos = 0;
+        
+        int n = s.nextInt();
+        
+        for(int i=0; i<n; i++)
+        {
+            int quant = s.nextInt();
+            char cobaia = s.next().charAt(0);
+            
+            total+=quant;
+            
+            if(cobaia=='C')
+                coelhos+=quant;
+            else
+            if(cobaia=='S')
+                sapos+=quant;
+            else
+            if(cobaia=='R')
+                ratos+=quant;
+        }
+        System.out.println("Total: "+total+" cobaias");
+        System.out.println("Total de coelhos: "+coelhos);
+        System.out.println("Total de ratos: "+ratos);
+        System.out.println("Total de sapos: "+sapos);
+        
+        double aux = coelhos*100;
+        aux/=total;
+        
+        System.out.printf("Percentual de coelhos: %.2f ",aux);
+        System.out.println("%");
+        aux = ratos*100;
+        aux/=total;
+        System.out.printf("Percentual de ratos: %.2f ",aux);
+        System.out.println("%");
+        aux = sapos*100;
+        aux/=total;
+        System.out.printf("Percentual de sapos: %.2f ",aux);
+        System.out.println("%");
+        
+    }
+            
+}

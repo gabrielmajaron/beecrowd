@@ -1,0 +1,37 @@
+package uri;
+
+import java.util.Scanner;
+
+
+
+public class Uri 
+{
+    
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+                
+        int tipo = s.nextInt();
+        int bebida=0,gasosa=0,vandiesel=0;
+        while(tipo!=4)
+        {
+            if(tipo==1)
+               bebida++;
+            else
+            if(tipo==2)
+                gasosa++;
+            else
+            if(tipo==3)
+                vandiesel++;
+            
+            tipo = s.nextInt();
+        }
+        
+        System.out.println("MUITO OBRIGADO");
+        System.out.println("Alcool: "+bebida);
+        System.out.println("Gasolina: "+gasosa);
+        System.out.println("Diesel: "+vandiesel);
+    }
+            
+}

@@ -1,0 +1,55 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+                
+        String operacao = s.nextLine();
+        if(operacao.equals(""))
+            operacao = s.nextLine();
+        
+        double[][] mat = new double[12][12];
+        
+        for(int i=0; i<12; i++)//12
+            for(int j=0; j<12; j++)//12
+            {
+                mat[i][j] = s.nextDouble();
+            }
+        
+        if(operacao.equals("S"))
+        {
+            double soma = 0;
+            int cont=1;
+            for(int i=11; i>=7; i--,cont++)
+                for(int j=cont; j<=(11-cont);j++)
+                    soma+=mat[i][j];
+            
+            System.out.printf("%.1f\n",soma);
+        }
+        else
+            if(operacao.equals("M"))
+            {
+                double soma = 0;
+
+                int qtde = 0;
+                
+                int cont=1;
+                for(int i=11; i>=7; i--,cont++)
+                    for(int j=cont; j<=(11-cont);j++)
+                    {
+                        qtde++;
+                        soma+=mat[i][j];
+                    }
+                
+                
+                System.out.printf("%.1f\n",(soma/qtde));
+               
+            }
+    }
+}

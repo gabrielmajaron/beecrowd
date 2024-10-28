@@ -1,0 +1,54 @@
+
+package uri;
+
+import java.util.Scanner;
+
+
+public class Uri 
+{
+    public static int converteMinutos(int hora, int min)
+    {
+        return (hora*60)+min;
+    }
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        String entrada = s.nextLine();
+        
+        String[] aux = entrada.split(" ");
+        int horaIni, minIni, horaFim, minFim, minutosIni, minutosFim;
+        
+        horaIni = Integer.parseInt(aux[0]);
+        minIni = Integer.parseInt(aux[1]);
+        horaFim = Integer.parseInt(aux[2]);
+        minFim = Integer.parseInt(aux[3]);
+        
+        minutosIni = converteMinutos(horaIni, minIni);
+        minutosFim = converteMinutos(horaFim, minFim);
+        
+        int dif;
+        if(horaIni > horaFim)//virou o dia
+        {
+            int aux2 = 24-horaIni;
+            dif = (horaFim+aux2)*60;
+            dif += (minFim-minIni);
+        }
+        else
+            dif = minutosFim-minutosIni;
+        
+        int horasDuracao, minutosDuracao=dif;
+        
+        if(dif >= 60)
+        {
+            horasDuracao = (int)dif/60;
+            minutosDuracao = dif-(horasDuracao*60);
+        }
+        else
+            horasDuracao = 0;
+        
+        if(horasDuracao==0 && minutosDuracao==0)
+            System.out.println("O JOGO DUROU 24 HORA(S) E 0 MINUTO(S)");
+        else
+        System.out.println("O JOGO DUROU "+horasDuracao+" HORA(S) E "+minutosDuracao+" MINUTO(S)");
+    }
+}

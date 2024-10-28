@@ -1,0 +1,81 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+                
+        String operacao = s.nextLine();
+        if(operacao.equals(""))
+            operacao = s.nextLine();
+        
+        double[][] mat = new double[12][12];
+        
+        for(int i=0; i<12; i++)//12
+            for(int j=0; j<12; j++)//12
+            {
+                mat[i][j] = s.nextDouble();
+            }
+        
+        if(operacao.equals("S"))
+        {
+            double soma = 0;
+            
+            for(int i=0; i<=(12/2); i++)
+                for(int j=11, cont=0; cont<i; cont++, j--)
+                {
+                    if(i == (12/2) && j==(12/2));
+                    else
+                    {
+                        soma+=mat[i][j];
+                    }
+                        
+                }
+            
+            int cont=4;
+            int cont2 = 1;
+            for(int i=(12/2)+1; i<12; i++,cont=4-cont2,cont2++)
+                for(int j=11; cont>0;cont--,j--)
+                    soma+=mat[i][j];
+                
+            System.out.printf("%.1f\n",soma);
+        }
+        else
+            if(operacao.equals("M"))
+            {
+                double soma = 0;
+
+                int qtde = 0;
+                for(int i=0; i<=(12/2); i++)
+                    for(int j=11, cont=0; cont<i; cont++, j--)
+                    {
+                        if(i == (12/2) && j==(12/2));
+                        else
+                        {
+                            qtde++;
+                            soma+=mat[i][j];
+                        }
+
+                    }
+
+                int cont=4;
+                int cont2 = 1;
+                for(int i=(12/2)+1; i<12; i++,cont=4-cont2,cont2++)
+                    for(int j=11; cont>0;cont--,j--)
+                    {
+                        
+                        soma+=mat[i][j];
+                        qtde++;
+                    }
+                
+                
+                System.out.printf("%.1f\n",(soma/qtde));
+               
+            }
+    }
+}

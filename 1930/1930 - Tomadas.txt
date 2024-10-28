@@ -1,0 +1,26 @@
+package uri;
+
+import java.util.Scanner;
+
+
+public class Uri 
+{
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int t1 = s.nextInt();
+        int t2 = s.nextInt();
+        int t3 = s.nextInt();
+        int t4 = s.nextInt();
+        
+        int r = t1+t2+t3+t4-3;
+        
+        if(r<0)
+            System.out.println("0");
+        else
+            System.out.println(r);
+                
+    }
+}

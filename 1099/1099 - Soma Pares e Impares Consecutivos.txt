@@ -1,0 +1,44 @@
+package uri;
+
+import java.util.Scanner;
+
+
+
+public class Uri 
+{
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int qtde = s.nextInt();
+        
+        for(int i=0;i<qtde;i++)
+        {
+            int v1 = s.nextInt();
+            int v2 = s.nextInt();
+            
+            int maior, menor;
+            if(v2>v1)
+            {
+                maior = v2;
+                menor = v1;
+            }
+            else
+            {
+                maior = v1;
+                menor = v2;
+            }
+            
+            int soma = 0;
+            for(int j=menor+1; j<maior; j++)
+            {
+                if(j%2 !=0)
+                    soma+=j;
+            }
+            System.out.println(soma);
+        }
+            
+    }
+            
+}

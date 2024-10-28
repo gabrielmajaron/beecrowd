@@ -1,0 +1,45 @@
+package uri;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Uri 
+{
+    public static void main(String[] args) throws IOException 
+    {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String linha;
+        
+        while ((linha = br.readLine()) != null)
+        {
+            String str1 = linha;
+            String str2 = br.readLine();
+            int maior = 0;
+            for(int i=0; i<str1.length(); i++)
+            {
+                for(int j=0; j<str2.length(); j++)
+                {
+                    int auxj = j;
+                    int auxi = i;
+                    int cont = 0;
+                    while(auxj<str2.length() && auxi<str1.length() && str1.charAt(auxi) == str2.charAt(auxj))
+                    {
+                        cont++;
+                        auxj++;
+                        auxi++;
+                    }
+                    if(cont>maior)
+                        maior = cont;
+                        
+                }
+            }
+            System.out.println(maior);
+            
+        }
+    }
+}
+/*
+oeo kkkk
+eee kkkk
+*/

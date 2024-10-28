@@ -1,0 +1,60 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    public static boolean Letra(char letra)
+    {
+        if(letra>=65 && letra<=90)
+            return true;
+        
+        if(letra>=97 && letra<=122)
+            return true;
+        
+        return false;
+                   
+    }
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+                
+        int n = s.nextInt();
+            for(int i=0; i<n; i++)
+            {
+                String texto =  s.nextLine();
+                if(texto.equals(""))
+                    texto =  s.nextLine();
+                String aux = "";
+                for(int j=0; j<texto.length(); j++)
+                {
+                    char letra = texto.charAt(j);
+                    
+                    if(Letra(letra))
+                        letra+=3;
+                    
+                    aux+=letra;
+                }
+                texto = "";
+                for(int j=aux.length()-1; j>=0;j--)
+                {
+                    texto+=aux.charAt(j)+"";
+                }
+                aux="";
+                for(int j=0; j<texto.length()/2;j++)
+                    aux+=texto.charAt(j);
+                
+                for(int j=texto.length()/2; j<texto.length(); j++)
+                {
+                    char letra = texto.charAt(j);
+                    
+                        letra--;
+                    
+                    aux+=letra;
+                }
+                
+                System.out.println(aux);
+            }
+    }
+}

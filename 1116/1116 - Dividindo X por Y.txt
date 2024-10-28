@@ -1,0 +1,36 @@
+package uri;
+
+import java.util.Scanner;
+
+
+
+public class Uri 
+{
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int qtde = s.nextInt();
+        
+        for(int i=0;i<qtde;i++)
+        {
+            int v1 = s.nextInt();
+            int v2 = s.nextInt();
+            
+            
+            if(v2==0)
+                System.out.println("divisao impossivel");
+            else
+            {
+                double aux = (double)v1/(double)v2;
+                System.out.printf("%.1f\n",aux);
+            }
+            
+        }
+               
+                
+                
+    }
+            
+}

@@ -1,0 +1,46 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    public static void main(String[] args) 
+    {
+        int n;
+        Scanner s = new Scanner(System.in);
+        
+        n = s.nextInt();
+        
+        while(n>0)
+        {
+            for(int i=1; i<=n; i++)
+            {
+                int aux = i;
+                int cont = 0;
+                
+                while(aux>1)
+                {
+                    System.out.printf("%3d",aux);
+                    if(cont+1<n)
+                        System.out.print(" ");
+                    aux--;
+                    cont++;
+                }
+                
+                while(cont<n)
+                {
+                    System.out.printf("%3d",aux);   
+                    if(cont+1<n)
+                        System.out.print(" ");           
+                    aux++;
+                    cont++;
+                }
+                System.out.println("");
+            }
+            System.out.println("");
+            n = s.nextInt();
+        }
+        
+    }
+    
+}

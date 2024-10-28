@@ -1,0 +1,134 @@
+package uri;
+
+import java.util.Scanner;
+
+
+public class Uri 
+{
+    public static boolean ehTriangulo(int a, int b, int c)
+    {
+        int vet[] = new int[3];
+        
+        vet[0] = a;
+        vet[1] = b;
+        vet[2] = c;
+        
+        for(int i=0; i<3; i++)
+        for(int j=0; j<3; j++)
+        for(int k=0; k<3; k++)
+        {
+            if(i!=j && i!=k && k!=j)
+            {
+                int a2 = vet[i];
+                int b2 = vet[j];
+                int c2 = vet[k];
+                
+                if(Math.abs(b2 - c2) < a2 && a2 < b2 + c2)
+                    return true;
+                //|b - c| < a < b + c
+            }
+        }
+        
+        return false;
+    }
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        int a = s.nextInt();
+        int b = s.nextInt();
+        int c = s.nextInt();
+        int d = s.nextInt();
+        
+        int a2 = a, b2 = b, c2 = c, d2 = d;
+        
+        boolean encontrou = false;
+        //a, b, c
+        if(ehTriangulo(a2,b2,c2))
+        {
+            System.out.println("S");
+            return;
+        }
+        else
+        if(ehTriangulo(b2,c2,a2))
+        {
+            System.out.println("S");
+            return;
+        }
+        else
+        if(ehTriangulo(a2,c2,b2))  
+        {
+            System.out.println("S");
+            return;
+        }
+            
+        
+        //a, b, d
+        c2 = d;
+        if(ehTriangulo(a2,b2,c2))
+        {
+            System.out.println("S");
+            return;
+        }
+        else
+        if(ehTriangulo(b2,c2,a2))
+        {
+            System.out.println("S");
+            return;
+        }
+        else
+        if(ehTriangulo(a2,c2,b2))  
+        {
+            System.out.println("S");
+            return;
+        }
+        
+        //b, c, d
+        a2 = b;
+        b2 = c;
+        c2 = d;
+        if(ehTriangulo(a2,b2,c2))
+        {
+            System.out.println("S");
+            return;
+        }
+        else
+        if(ehTriangulo(b2,c2,a2))
+        {
+            System.out.println("S");
+            return;
+        }
+        else
+        if(ehTriangulo(a2,c2,b2))  
+        {
+            System.out.println("S");
+            return;
+        }
+        
+        
+        //c, d, a
+        a2 = c;
+        b2 = d;
+        c2 = a;
+        if(ehTriangulo(a2,b2,c2))
+        {
+            System.out.println("S");
+            return;
+        }
+        else
+        if(ehTriangulo(b2,c2,a2))
+        {
+            System.out.println("S");
+            return;
+        }
+        else
+        if(ehTriangulo(a2,c2,b2))  
+        {
+            System.out.println("S");
+            return;
+        }
+        
+        System.out.println("N");
+        
+    }
+}

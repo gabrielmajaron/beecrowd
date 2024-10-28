@@ -1,0 +1,28 @@
+package uri;
+
+import java.util.Scanner;
+
+
+
+public class Uri 
+{
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int v1 = s.nextInt();
+        int v2 = s.nextInt();
+        
+        while(v1!=v2)
+        {
+            if(v1<v2)
+                System.out.println("Crescente");
+            else
+                System.out.println("Decrescente");
+         v1 = s.nextInt();
+         v2 = s.nextInt();
+        }
+    }
+            
+}

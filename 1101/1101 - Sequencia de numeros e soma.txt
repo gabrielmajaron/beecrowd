@@ -1,0 +1,45 @@
+package uri;
+
+import java.util.Scanner;
+
+
+
+public class Uri 
+{
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int v1 = s.nextInt();
+        int v2 = s.nextInt();
+        
+        while(v1>0 && v2>0)
+        {
+            int maior, menor;
+            
+            if(v1>v2)
+            {
+                maior = v1;
+                menor = v2;
+            }
+            else
+            {
+                maior = v2;
+                menor = v1;
+            }
+            
+            int soma = 0;
+            for(int i=menor; i<=maior; i++)
+            {
+                System.out.print(i+" ");
+                soma+=i;
+            }
+            System.out.println("Sum="+soma);
+            
+            v1 = s.nextInt();
+            v2 = s.nextInt();
+        }
+    }
+            
+}

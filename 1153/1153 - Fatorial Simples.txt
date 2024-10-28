@@ -1,0 +1,24 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        long n =s.nextInt();
+        
+        long fatorial, i;
+        for(fatorial = 0, i =n-1; i>1; i--)
+        {
+            fatorial=n*i;
+            n = fatorial;
+        }
+        
+        System.out.println(fatorial);
+    }
+}

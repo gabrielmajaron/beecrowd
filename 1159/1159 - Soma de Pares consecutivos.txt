@@ -1,0 +1,33 @@
+package uri;
+
+import java.util.Scanner;
+
+
+public class Uri 
+{
+    
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int x = s.nextInt();
+        
+        while(x!=0)
+        {
+            int soma = 0;
+            for(int i=x, cont = 0; cont<5;i++)
+            {
+                if(i%2 == 0)
+                {
+                    soma+=i;
+                    cont++;
+                }
+            }
+            System.out.println(soma);
+            x = s.nextInt();
+        }
+                
+        
+    }
+}

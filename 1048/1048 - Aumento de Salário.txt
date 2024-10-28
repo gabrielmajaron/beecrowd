@@ -1,0 +1,53 @@
+
+package uri;
+
+import java.util.Scanner;
+
+
+public class Uri 
+{
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        double salario = s.nextDouble();
+        
+        double[] vetLimites = new double[4];
+        int[] vetPorcent = new int[5];
+        
+        vetLimites[0] = 400;
+        vetLimites[1] = 800;
+        vetLimites[2] = 1200;
+        vetLimites[3] = 2000;
+        
+        vetPorcent[0] = 15;
+        vetPorcent[1] = 12;
+        vetPorcent[2] = 10;
+        vetPorcent[3] = 7;
+        vetPorcent[4] = 4;
+        
+        int pos = -1;
+        for(int i=0; i<=3; i++)
+        {
+            if(salario<=vetLimites[i])
+            {
+                pos = i;
+                i = 10;
+            }
+        }
+        if(pos == -1)//maior que 2000
+            pos = 4;
+        
+        double novoSalario = salario+(salario*(Double.parseDouble(vetPorcent[pos]+"")/100));
+        
+        double reajuste = novoSalario-salario;
+        int percentual = vetPorcent[pos];
+        
+        System.out.printf("Novo salario: %.2f\n",novoSalario);
+        System.out.printf("Reajuste ganho: %.2f\n",reajuste);
+        System.out.printf("Em percentual: %d ",percentual);
+        System.out.println("%");
+        
+        
+    }
+}

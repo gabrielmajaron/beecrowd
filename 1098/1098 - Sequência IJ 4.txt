@@ -1,0 +1,85 @@
+package uri;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+public class Uri 
+{
+    static int auxNum = -1;
+    public static boolean inteiro(double num) 
+    {
+        auxNum = -1;
+        
+        BigDecimal bd = new BigDecimal(num).setScale(2, RoundingMode.HALF_UP);
+        
+        num = bd.doubleValue();
+        
+        String a = ""+num;
+        String b="";
+        int cont = -1;
+        for(int i=0;i<a.length() && cont<1;i++)
+        {
+            if(a.charAt(i)=='.' || cont>=0)
+            {
+                b+=a.charAt(i);
+                
+                cont++;
+            }
+            else
+                b+=a.charAt(i);
+        }
+        
+        try
+        {
+            int k = Integer.parseInt(b.replace((".0"), ""));
+            auxNum = k;
+            return true;
+        }
+        catch(Exception e)
+        {
+            auxNum = -1;
+            
+            
+        return false;
+        }
+            
+    }
+    public static void main(String[] args) 
+    {
+        int cont = 0;
+        
+        for(double i = 0, j = 1; i<=2; j++)
+        {
+            
+            int auxI=-1, auxJ=-1;
+            
+            if(inteiro(i))
+                auxI = auxNum;
+            if(inteiro(j))
+                auxJ = auxNum;
+            
+            if(auxI!=-1 && auxJ!=-1)
+                System.out.println("I="+auxI+" J="+auxJ);
+            else
+            if(auxI==-1 && auxJ!=-1)
+                System.out.printf("I=%.1f J=%d\n",i,auxJ);
+            else
+            if(auxI!=-1 && auxJ==-1)
+                System.out.printf("I=%d J=%.1f\n",auxI,j);
+            else
+                System.out.printf("I=%.1f J=%.1f\n",i,j);
+            
+            if(cont == 2)
+            {
+                i+=0.2;
+                j +=0.2;
+                j-=3;
+                cont = -1;
+            }
+            cont++;
+        }
+        
+            
+    }
+            
+}

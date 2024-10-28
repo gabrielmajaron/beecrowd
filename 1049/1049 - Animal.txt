@@ -1,0 +1,162 @@
+import java.io.IOException;
+ 
+
+import java.util.Scanner;
+
+class No 
+{
+    String valor;
+    No esq, dir;
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
+
+    public No getEsq() {
+        return esq;
+    }
+
+    public void setEsq(No esq) {
+        this.esq = esq;
+    }
+
+    public No getDir() {
+        return dir;
+    }
+
+    public void setDir(No dir) {
+        this.dir = dir;
+    }
+    
+    public No(String valor, No esq, No dir)
+    {
+        this.valor = valor;
+        this.esq = esq;
+        this.dir = dir;
+    }
+    
+    
+}
+
+ 
+public class Main {
+ 
+    public static No raiz = null;
+    
+    public static void insereArvore(No no, String valor, String lado)
+    {
+        if(raiz == null)
+            raiz = new No(valor, null, null);
+        else
+        {
+            No novo = new No(valor, null, null);
+            
+            if(lado.equals("e"))
+            {
+                no.setEsq(novo);
+            }
+            else
+               no.setDir(novo);
+        }
+    }
+ 
+    public static void main(String[] args) throws IOException {
+ 
+       
+       
+        No auxEsq, auxDir;
+        
+        insereArvore(raiz,"raiz", "");//RAIZ
+        insereArvore(raiz,"invertebrado", "e");
+        insereArvore(raiz,"vertebrado", "d");
+        
+        No aux = raiz.getEsq();//ESQ
+        insereArvore(aux,"anelideo", "e");//ESQ,ESQ
+        insereArvore(aux,"inseto", "d");//ESQ,DIR
+        
+        auxEsq = aux.getEsq();//ESQ,ESQ
+        auxDir = aux.getDir();//ESQ,DIR
+        
+        insereArvore(auxEsq,"onivoro", "e");//ESQ,ESQ,ESQ
+        insereArvore(auxEsq,"hematofago", "d");//ESQ,ESQ,DIR
+        insereArvore(auxDir,"herbivoro", "e");//ESQ,DIR,ESQ
+        insereArvore(auxDir,"hematofago", "d");//ESQ,DIR,DIR
+        
+        aux = auxEsq;
+        No auxNoEsq = auxDir.getEsq();// LAGARTA
+        No auxNoDir = auxDir.getDir(); // PULGA
+        
+        auxEsq = aux.getEsq();//ESQ,ESQ,ESQ
+        auxDir = aux.getDir();//ESQ,ESQ,DIR
+        insereArvore(auxEsq,"minhoca", "e");//FOLHA ESQ,ESQ,ESQ
+        insereArvore(auxEsq,"minhoca", "d");//--
+        insereArvore(auxDir,"sanguessuga", "e");//FOLHA ESQ,ESQ,DIR
+        insereArvore(auxDir,"sanguessuga", "d");//---
+        
+        insereArvore(auxNoEsq,"lagarta","e");//FOLHA ESQ,DIR,ESQ
+        insereArvore(auxNoEsq,"lagarta","d");//---
+        insereArvore(auxNoDir,"pulga","e");//FOLHA ESQ,DIR,DIR
+        insereArvore(auxNoDir,"pulga","d");//---
+        
+        
+        No auxRaizDir = raiz.getDir();//DIR
+        
+        insereArvore(auxRaizDir,"mamifero", "e");//DIR,ESQ
+        insereArvore(auxRaizDir,"ave", "d");//DIR,DIR
+        
+        auxEsq = auxRaizDir.getEsq();//DIR,ESQ
+        auxDir = auxRaizDir.getDir();//DIR,DIR
+        
+        insereArvore(auxEsq,"herbivoro", "e");//DIR,ESQ,ESQ
+        insereArvore(auxEsq,"onivoro", "d");//DIR,ESQ,DIR
+        insereArvore(auxDir,"onivoro", "e");//DIR,DIR,ESQ
+        insereArvore(auxDir,"carnivoro", "d");//DIR,DIR,DIR
+        
+        auxRaizDir = auxEsq;
+        auxNoEsq = auxDir.getEsq();// POMBA
+        auxNoDir = auxDir.getDir(); // AGUIA
+        
+        auxEsq = auxRaizDir.getEsq();//DIR,ESQ,ESQ
+        auxDir = auxRaizDir.getDir();//DIR,ESQ,DIR
+        insereArvore(auxEsq,"vaca", "e");//FOLHA DIR,ESQ,ESQ
+        insereArvore(auxEsq,"vaca", "d");//--
+        insereArvore(auxDir,"homem", "e");//FOLHA DIR,ESQ,DIR
+        insereArvore(auxDir,"homem", "d");//---
+        
+        insereArvore(auxNoEsq,"pomba","e");//FOLHA DIR,DIR,ESQ
+        insereArvore(auxNoEsq,"pomba","d");//---
+        insereArvore(auxNoDir,"aguia","e");//FOLHA DIR,DIR,DIR
+        insereArvore(auxNoDir,"aguia","d");//---
+        
+        Scanner s = new Scanner(System.in);
+        
+        String palavra1 = s.nextLine();
+        String palavra2 = s.nextLine();
+        String palavra3 = s.nextLine();
+        
+        aux = raiz;
+        
+        if(aux.getEsq().getValor().equals(palavra1))
+            aux = aux.getEsq();
+        else
+            aux = aux.getDir();
+        
+        if(aux.getEsq().getValor().equals(palavra2))
+            aux = aux.getEsq();
+        else
+            aux = aux.getDir();
+        
+        if(aux.getEsq().getValor().equals(palavra3))
+            aux = aux.getEsq();
+        else
+            aux = aux.getDir();
+        
+        System.out.println(aux.getEsq().getValor());
+ 
+    }
+ 
+}

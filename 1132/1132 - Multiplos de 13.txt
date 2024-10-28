@@ -1,0 +1,40 @@
+package uri;
+
+import java.util.Scanner;
+
+
+
+public class Uri 
+{
+    
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+                
+        int v1 = s.nextInt();
+        int v2 = s.nextInt();
+        
+        int maior, menor;
+        
+        if(v1>v2)
+        {
+            maior = v1;
+            menor = v2;
+        }
+        else
+        {
+            maior = v2;
+            menor = v1;
+        }
+        
+        int soma = 0;
+        for(int i=menor; i<=maior;i++)
+        {
+            if(i%13!=0)
+                soma+=i;
+        }
+        System.out.println(soma);
+    }
+            
+}

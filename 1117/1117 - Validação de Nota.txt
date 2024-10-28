@@ -1,0 +1,39 @@
+package uri;
+
+import java.util.Scanner;
+
+
+
+public class Uri 
+{
+    
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        double n1 = s.nextDouble();
+        
+        while(n1<0 || n1>10)
+        {
+            System.out.println("nota invalida");
+            n1 = s.nextDouble();
+        }
+        
+        double n2 = s.nextDouble();
+        
+        while(n2<0 || n2>10)
+        {
+            System.out.println("nota invalida");
+            n2 = s.nextDouble();
+        }
+        
+        System.out.printf("media = %.2f\n",(n1+n2)/2);
+        
+        
+               
+                
+                
+    }
+            
+}

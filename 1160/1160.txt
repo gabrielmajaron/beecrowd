@@ -1,0 +1,37 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    public static void main(String[] args) 
+    {
+        int pa,pb,t;
+        double ga,gb;
+        Scanner s = new Scanner(System.in);
+        
+        t = s.nextInt();
+        
+        for(int i=0; i<t;i++)
+        {
+            pa = s.nextInt();
+            pb = s.nextInt();
+            ga = s.nextDouble();
+            gb = s.nextDouble();
+            int anos =0;
+            while(pa<=pb && anos<=100)
+            {
+                pa+=(pa*(ga/100));
+                pb+=(pb*(gb/100));
+                anos++;
+            }
+            
+            if(anos>100)
+                System.out.println("Mais de 1 seculo.");
+            else
+                System.out.println(anos+" anos.");
+                
+        }
+    }
+    
+}

@@ -1,0 +1,39 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int n =s.nextInt();
+        int ant1 = 0, ant2 = 0;
+        
+        for(int i=0;i<n;i++)
+        {
+            if(i<2)
+            {
+                if(i+1==n)
+                    System.out.println(i);
+                else
+                    System.out.print(i+" ");
+                
+                ant1 = 0;
+                ant2 = 1;
+            }
+            else
+            {
+                if(i+1==n)
+                    System.out.println(ant1+ant2);
+                else
+                    System.out.print((ant1+ant2)+" ");
+                
+                int aux = ant1;
+                ant1 = ant2;
+                ant2 = (ant2+aux);
+            }
+        }
+    }
+}

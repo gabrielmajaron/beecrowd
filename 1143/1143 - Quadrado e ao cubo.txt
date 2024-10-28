@@ -1,0 +1,33 @@
+package uri;
+
+import java.util.Scanner;
+
+
+
+public class Uri 
+{
+    
+    
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+                
+        int linhas = s.nextInt();
+        int num=1;
+        for(int i=0;i<linhas;i++)
+        {
+            int aux = num;
+            for(int j=0;j<3;j++,aux*=num)
+            {
+                if(j+1==3)
+                    System.out.print(aux);
+                else
+                System.out.print(aux+" ");
+            }
+            System.out.println("");
+            num++;
+        }
+                
+    }
+            
+}

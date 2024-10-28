@@ -1,0 +1,30 @@
+package uri;
+
+import java.util.Scanner;
+
+public class Uri 
+{
+    public static void main(String[] args) 
+    {
+        int a, n, soma = 0;
+        Scanner s = new Scanner(System.in);
+        
+        //Faça um algoritmo para ler um valor A e um valor N
+        a = s.nextInt();
+        n = s.nextInt();
+        
+        //Enquanto N for negativo ou ZERO, um novo N(apenas N) deve ser lido
+        while(n<=0)
+            n = s.nextInt();
+            
+        //Imprimir a soma de A para cada i com os valores (0 <= i <= N-1)
+	for (int i = 0; i<n ;i++)
+		soma += (a + i);
+        
+        //exemplo: a = 3, n = 2
+        //soma = (3+0) + (3+1)
+        
+        System.out.println(soma);
+    }
+    
+}
